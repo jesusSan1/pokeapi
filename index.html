@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>PokeAPI</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="Shortcut Icon" type="image/x-icon"
+        href="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" />
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1 col-1"></div>
+                <div class="col-md-10 col-10 text-center">
+                    <img class="img-fluid" src="https://1000logos.net/wp-content/uploads/2017/05/Pokemon-Logo.png"
+                        alt="" height="300" width="500">
+                </div>
+                <div class="col-md-1 col-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <input type="text" name="" id="" class="form-control" v-model="pokemon" @keyup.enter="buscarPokemon"
+                        autofocus>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 text-center">
+                    <button type="button" class="btn btn-primary" @click="buscarPokemon">Buscar</button>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 text-center">
+                    <br>
+                    <center>
+                        <div class="maincontainer" v-if="nombrePokemon">
+                            <div class="thecard">
+                                <div class="thefront">
+                                    <label>{{nombrePokemon}}</label>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <img class="img-fluid" v-if="imagen" :src="imagen" alt="" id="imgpokemon"
+                                                width="150" height="150">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="theback">
+                                    {{ nombrePokemon }}
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
+                                            <br>
+                                            Salud
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar"
+                                                    :style="{width: cantidadSalud+ '%'}"
+                                                    :aria-valuenow="{cantidadSalud}" aria-valuemin="0"
+                                                    aria-valuemax="100">{{cantidadSalud}}%</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
+                                            <br>
+                                            Ataque
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar"
+                                                    :style="{width: ataque+ '%'}" :aria-valuenow="{ataque}"
+                                                    aria-valuemin="0" aria-valuemax="100">{{ataque}}%</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
+                                            <br>
+                                            Defensa
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar"
+                                                    :style="{width: defensa+ '%'}" :aria-valuenow="{defensa}"
+                                                    aria-valuemin="0" aria-valuemax="100">{{defensa}}%</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                </center>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
